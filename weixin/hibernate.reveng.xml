@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+<table name="basemessage" catalog="weixin_kf" class="BaseMessage">
+	<primary-key>
+		<generator class="assigned"></generator>
+		<key-column name="MsgId" property="MsgId"/>
+	</primary-key>
+	<column name="FromUserName" property="FromUserName"></column>
+	<column name="ToUserName" property="ToUserName"></column>
+	<column name="CreateTime" property="CreateTime"></column>
+	<column name="MsgType" property="MsgType"></column>
+</table>
+<table name="employee" catalog="weixin_kf" class="Employee">
+		<primary-key>
+			<generator class="assigned"></generator>
+		</primary-key>
+	</table>
+	<table name="piclibrary" catalog="weixin_kf" class="PicLibrary">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="picturemessage" catalog="weixin_kf"
+		class="PictureMessage">
+		<primary-key>
+			<generator class="foreign"></generator>
+		</primary-key>
+	</table>
+	<table name="textmessage" catalog="weixin_kf" class="TextMessage">
+		<primary-key>
+			<generator class="foreign"></generator>
+		</primary-key>
+	</table>
+	<table name="tmlibrary" catalog="weixin_kf" class="TmLibrary">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="voicemessage" catalog="weixin_kf"
+		class="VoiceMessage">
+		<primary-key>
+			<generator class="foreign"></generator>
+		</primary-key>
+	</table>
+	<table name="voilibrary" catalog="weixin_kf" class="VoiLibrary">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+	<table name="chatgroup" catalog="weixin_kf" class="ChatGroup">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+</hibernate-reverse-engineering>

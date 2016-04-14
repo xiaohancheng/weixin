@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:task="http://www.springframework.org/schema/task" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd 
+	http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+    http://www.springframework.org/schema/aop 
+    http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd
+     http://www.springframework.org/schema/task 
+     http://www.springframework.org/schema/task/spring-task-3.0.xsd"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop">
+
+	<!-- 指示spring 扫描目标包的类 -->
+	<context:component-scan base-package="com.xhc.controller,com.xhc.util,com.xhc.service,com.xhc.dao"/>
+	<!-- 注册用于支持基于注解的控制器的请求处理方法的bean对象 -->
+	<mvc:annotation-driven />
+	<!-- 指示哪些静态资源需要单独处理，即不经过dispatcher servlet -->
+	<mvc:resources location="/css/" mapping="/css/**" />
+	<mvc:resources location="/js/" mapping="/js/**" />
+	<mvc:resources location="/" mapping="/*.html" />
+	<mvc:resources location="/image/" mapping="/image/**" />
+	<mvc:resources location="/emoji/" mapping="/emoji/**" />
+	<mvc:resources location="/picture/" mapping="/picture/**" />
+	<mvc:resources location="/download/" mapping="/download/**" />
+	<!-- 配置视图解析器 -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<!-- 开启这个配置，spring才能识别@Scheduled注解   -->  
+    <task:annotation-driven scheduler="qbScheduler" mode="proxy"/>  
+    <task:scheduler id="qbScheduler" pool-size="10"/>  
+  	
+  	<context:property-placeholder location="classpath:connection.properties" />
+  	
+  	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+
+		<property name="driverClass" value="${dataSource.driverClassName}" />
+		<property name="jdbcUrl" value="${dataSource.url}" />
+		<property name="user" value="${dataSource.username}" />
+		<property name="password" value="${dataSource.password}" />
+		
+		<!-- c3p0式数据源和数据库连接池开始 -->
+		<!-- 配置说明官网：http://www.mchange.com/projects/c3p0/ -->
+		<!--连接池中保留的最小连接数。Default: 3 -->
+		<property name="minPoolSize" value="10"></property>
+		<!--初始化时获取15个连接，取值应在minPoolSize与maxPoolSize之间。Default: 3 -->
+		<property name="initialPoolSize" value="15"></property>
+		<!--连接池中保留的最大连接数。Default: 15 -->
+		<property name="maxPoolSize" value="600"></property>
+		<!--当连接池用完时客户端调用getConnection()后等待获取新连接的时间，超时后将抛出 SQLException,如设为0则无限期等待。单位毫秒。Default: 
+			0 -->
+		<property name="checkoutTimeout" value="3000"></property>
+		<!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 -->
+		<property name="acquireIncrement" value="2"></property>
+		<!--定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 -->
+		<property name="acquireRetryAttempts" value="5"></property>
+		<!--两次连接间隔时间，单位毫秒。Default: 1000 -->
+		<property name="acquireRetryDelay" value="1000"></property>
+		<!--连接关闭时默认将所有未提交的操作回滚。Default: false -->
+		<property name="autoCommitOnClose" value="false"></property>
+		<!--获取连接失败将会引起所有等待连接池来获取连接的线程抛出异常。但是数据源仍有效 保留，并在下次调用getConnection()的时候继续尝试获取连接。如果设为true，那么在尝试 
+			获取连接失败后该数据源将申明已断开并永久关闭。Default: false -->
+		<property name="breakAfterAcquireFailure" value="false"></property>
+		<!-- 符合JDBC标准、用于控制 PreparedStatements 数量的参数，数据源中单个连接缓存的 PreparedStatements 
+			数量， 与 maxStatementsPerConnection（非标准） 参数有点像 -->
+		<property name="maxStatements" value="100"></property>
+		<!--最大空闲时间，指定秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->
+		<property name="maxIdleTime" value="1800"></property>
+		<!--每1200秒检查所有连接池中的空闲连接。Default: 0 -->
+		<property name="idleConnectionTestPeriod" value="1200"></property>
+		<!--如果设为true那么在取得连接的同时将校验连接的有效性。Default: false -->
+		<property name="testConnectionOnCheckin" value="true"></property>
+		<!--c3p0将建一张名为testConnection的空表，并使用其自带的查询语句进行测试。如果定义了这个参数那么 属性preferredTestQuery将被忽略。你不能在这张testConnection表上进行任何操作，它将只供c3p0测试 
+			使用。Default: null -->
+		<property name="automaticTestTable" value="testConnection"></property>
+		<!-- c3p0式数据源和数据库连接池结束 -->
+
+	</bean>
+    <bean id="sessionFactory"
+    	class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    	<property name="dataSource">
+    		<ref bean="dataSource" />
+    	</property>
+    	<property name="hibernateProperties">
+    		<props>
+    			<prop key="hibernate.dialect">
+    				org.hibernate.dialect.MySQLDialect
+    			</prop>
+    			<prop key="current_session_context_class">thread</prop>
+    			<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>  
+    		</props>
+    	</property>
+    	<property name="annotatedClasses">
+    		<list>
+    			<value>com.xhc.model.Employee</value>
+    			<value>com.xhc.model.TextMessage</value>
+    			<value>com.xhc.model.TmLibrary</value>
+    			<value>com.xhc.model.PictureMessage</value>
+    			<value>com.xhc.model.VoiLibrary</value>
+    			<value>com.xhc.model.VoiceMessage</value>
+    			<value>com.xhc.model.PicLibrary</value>
+    			<value>com.xhc.model.Employee</value>
+    			<value>com.xhc.model.BaseMessage</value>
+    			<value>com.xhc.model.ChatGroup</value></list>
+    	</property></bean>
+    <bean id="transactionManager"
+    	class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+    	<property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <!-- 配置文件上传 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 默认编码 -->
+		<property name="defaultEncoding" value="utf-8" />
+		<!-- 文件大小最大值 100MB -->
+		<property name="maxUploadSize" value="104857600" />
+		<!-- 内存中的最大值 -->
+		<property name="maxInMemorySize" value="40960" />
+	</bean>
+    <tx:annotation-driven transaction-manager="transactionManager" /></beans>

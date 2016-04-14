@@ -1,0 +1,499 @@
+@CHARSET "UTF-8";
+
+.message_panel {
+	width: 700px;
+	height: 380px;
+	text-align: left;
+	float: left;
+	margin: 0px auto;
+	font-size: 28px;
+	color: #000000;
+	background-color: #F2F2F2;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	position: absolute;
+	margin-left: 300px;
+}
+
+.message_panel table {
+	border-collapse: separate;
+	border-spacing: 3px;
+}
+
+.image {
+	width: 40px;
+}
+
+.image img {
+	margin-top: 0px;
+}
+
+.message {
+	text-align: left;
+	background-color: #98FB98;
+	max-width: 380px;
+	word-break: break-all;
+	overflow: auto;
+	border-radius: 10px;
+	padding: 8px 16px;
+}
+
+.kefu_msg {
+	float: right;
+	clear: both;
+	font-size: 20px;
+}
+
+.user_msg {
+	float: left;
+	clear: both;
+	font-size: 20px;
+}
+
+.user_msg .message {
+	background-color: white;
+}
+
+.kefu_image img {
+	margin-top: 0px;
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
+}
+
+.user_image img {
+	margin-top: 0px;
+	width: 40px;
+	height: 40px;
+	margin-left: 10px;
+}
+
+.user_image,.kefu_image {
+	vertical-align: top;
+}
+
+.talk,.send,.duankai {
+	display: none;
+}
+
+.send,.duankai {
+	margin-top: 8px;
+	font-size: 18px;
+}
+
+.send {
+	margin-right: 3px;
+}
+/* .send:HOVER,.duankai:HOVER {
+	cursor: pointer;
+	background-color: rgb(117, 116, 116);
+} */
+/* #accChangePass:HOVER,#accEdit:HOVER{
+	cursor: pointer;
+	color: blue;
+} */
+.emoji_button:HOVER,.pic_button:HOVER {
+	cursor: pointer;
+	color: blue;
+}
+
+.duankai {
+	position: relative;
+	margin-right: 570px;
+}
+
+.talk_panel {
+	width: 700px;
+	height: 179px;
+	text-align: right;
+	float: left;
+	margin: 0px auto;
+	font-weight: normal;
+	color: #000000;
+	background-color: #F2F2F2;
+	position: absolute;
+	margin-left: 300px;
+	margin-top: 380px;
+}
+
+#contact_panel {
+	/* width: 300px;
+	height: 300px; */
+	text-align: left;
+	float: left;
+	background-color: #cccccc;
+}
+
+#contact_panel ul,#chat_sucai ul {
+	list-style: none;
+	font-size: 20px;
+	margin: 0;
+	padding: 0;
+}
+
+#contact_panel ul li,#chat_sucai ul li {
+	background-color: rgb(162, 162, 162);
+	width: 150px;
+	text-align: center;
+	float: left;
+	height: 35px;
+	padding-top: 4px;
+}
+
+#contact_panel ul li:hover,#chat_sucai ul li:hover {
+	cursor: pointer;
+	background-color: rgb(149, 149, 149);
+}
+
+#container {
+	width: 1300px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#wait_panel,#jieru_panel {
+	width: 300px;
+	height: 524px;
+	background-color: #BCBCBC;
+	overflow-x: hidden;
+	overflow-y: auto;
+	font-size: 12px;
+	position: relative;
+}
+
+#jieru_panel {
+	display: none;
+}
+
+.wait_user:HOVER,.jieru_user:HOVER {
+	background-color: rgb(149, 149, 149);
+}
+
+.wait_user a,.jieru_user a {
+	color: black;
+}
+
+#wait_panel div,#jieru_panel div {
+	position: relative;
+	background-color: #B0B0B0;
+}
+
+#wait_panel ul,#jieru_panel ul {
+	display: none;
+}
+
+#wait_panel img,#jieru_panel img {
+	width: 50px;
+	height: 50px;
+	margin-left: 10px;
+	margin-top: 4px;
+}
+
+#wait_panel a,#jieru_panel a {
+	position: absolute;
+	top: 4px;
+	left: 70px;
+	font-size: 20px;
+}
+
+#wait_panel input,#jieru_panel input{
+	position: absolute;
+	top: 10px;
+	left: 220px;
+	font-size: 16px;
+	background-color: #B9B9B9;
+	border: 4px solid #B6B6B6;
+	border-radius: 5px;
+}
+
+#wait_panel input:HOVER,#jieru_panel input:HOVER{
+	cursor: pointer;
+	background-color: rgb(117, 116, 116);
+	border: 4px solid rgb(117, 116, 116);
+	border-radius: 5px;
+}
+
+#head {
+	width: 1300px;
+	height: 64px;
+	/* 	background-color: #EAEAEA; */
+	background-color: #3B3B3B;
+}
+
+#logout {
+	height: 28px;
+	width: 50px;
+	float: right;
+	margin-top: 32px;
+	font-size: 18px;
+	font-weight: lighter;
+}
+
+#logout a:hover {
+	cursor: pointer;
+	color: blue;
+}
+
+#logo_image {
+	float: left;
+}
+
+#logo_image img {
+	margin-left: 40px;
+	margin-top: 8px;
+	width: 56px;
+}
+
+#logo_name label {
+	margin-top: 14px;
+	font-size: 28px;
+	font-weight: lighter;
+	color: white;
+	float: left;
+}
+
+#account {
+	font-size: 18px;
+	font-weight: lighter;
+	margin-top: 32px;
+	float: left;
+	width: 1000px;
+	text-align: right;
+	color: white;
+}
+
+#account a:HOVER {
+	cursor: pointer;
+	color: blue;
+}
+
+#kong {
+	width: 160px;
+	height: 32px;
+	position: absolute;
+	margin-top: 460px;
+	margin-left: 860px;
+	font-size: 18px;
+	background-color: #B6B6B6;
+	display: none;
+	font-weight: lighter;
+	text-align: center;
+	font-family: cursive;
+	padding-top: 6px;
+	border-radius: 5px;
+}
+
+#select {
+	position: absolute;
+	margin-top: 510px;
+	margin-left: 290px;
+	font-size: 20px;
+}
+
+.jieru_user label {
+	background-color: red;
+	color: white;
+	border-radius: 10px;
+	font-size: 16px;
+	width: 22px;
+	height: 22px;
+	display: inline-block;
+	text-align: center;
+	margin-left: 10px;
+	display: none;
+}
+
+.parent .show-panel {
+	display: inline-block;
+}
+
+.img_message img,.kefu_msg img,.talk img {
+	max-width: 200px;
+}
+
+.talk {
+	width: 696px;
+	height: 100px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	background-color: white;
+	word-break: break-all;
+	font-size: 20px;
+	text-align: left;
+	position: relative;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #B9B9B9;
+	border-top: none;
+	border-radius: 0px 0px 10px 10px;
+}
+
+#pictures {
+	position: fixed;
+	top: 60px;
+	left: 400px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #888888;
+	width: 670px;
+	height: 380px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	/*  margin:-50px 0 0 -50px; */
+	display: none;
+	background-color: white;
+	z-index: 999999;
+}
+
+#pictures td {
+	width: 160px;
+	height: 185px;
+	/* 	background-color: #D5D5D5; */
+	text-align: center;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #888888;
+}
+
+#pictures img {
+	max-width: 160px;
+	max-height: 185px;
+}
+
+#emojis {
+	position: fixed;
+	left: 350px;
+	top: 197px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	display: none;
+	background-color: white;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #B9B9B9;
+	border-radius: 10px;
+}
+
+#emojis td {
+	width: 30px;
+	height: 30px;
+	background-color: white;
+	text-align: center;
+}
+
+#emojis td:HOVER {
+	background-color: #CFCFCF;
+}
+
+#emojis table {
+	padding: 15px;
+}
+
+.pic_button {
+	margin-left: 10px;
+	font-size: 16px;
+}
+
+.emoji_button {
+	margin-left: 20px;
+	font-size: 16px;
+}
+
+.pic_div {
+	width: 696px;
+	height: 20px;
+	text-align: left;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #B9B9B9;
+	border-bottom: none;
+	border-radius: 10px 10px 0px 0px;
+	background-color: white;
+	display: none;
+}
+
+body {
+	background-color: rgb(117, 116, 116);
+}
+
+#chat_sucai {
+	background-color: #EFEFEF;
+	margin-left: 1000px;
+	width: 300px;
+	height: 559px;
+	position: absolute;
+}
+
+#big_Pic_div {
+	position: fixed;
+	background-color: rgb(245, 245, 245);
+	z-index: 999999;
+	left: 30%;
+	top: 5%;
+	border-color: #c9c9c9;
+}
+#zhuanjie_div,#handleZhuanjie_div{
+	position: fixed;
+	background-color: rgb(245, 245, 245);
+	z-index: 999999;
+	left: 340px;
+	top: 100px;
+	width:400px;
+	text-align:left;
+	border-color: #c9c9c9;
+	color:rgb(110, 110, 110);
+}
+#zhuanjieKefu,#handleZhuanjieContent{
+	border-style: solid;
+	border-width: 1px;
+	border-color: #c9c9c9;
+	border-radius:5px;
+	padding: 10px;
+}
+#handleZhuanjieContent{
+	word-wrap:break-word;
+}
+#zhuanjieTitle,#handleZhuanjieTitle{
+	margin-left: 45%;
+	font-size: 16px;
+}
+#zhuanjiebuttons,#handleZhuanjiebuttons{
+	text-align: right;
+}
+#big_Pic_div img {
+	max-width: 800px;
+	max-height: 550px;
+}
+
+.message img:hover,.img_message img:hover {
+	cursor: pointer;
+}
+
+a {
+	color: white;
+}
+
+#accountMessage a {
+	color: black;
+}
+
+.fixed-table-body {
+	max-height: 460px;
+}
+
+.pagination-info {
+	display: none;
+}
+
+.search {
+	width: 95%;
+	margin-right: 2.5%;
+}
+.preview_pl_pic{
+	max-width: 180px;
+	max-height: 120px;
+}
+#textMsgList_table tbody tr:HOVER,#picMsgList_table tbody tr:HOVER{
+	cursor: pointer;
+	background-color: white;
+},

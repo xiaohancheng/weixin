@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+body {
+	background:url(../image/login_bg.jpg) top center no-repeat; 
+ 	background-size:cover;
+ }
+ body div{
+ 	width: 30%;
+ 	height: 65%;
+ 	text-align: center;
+ 	margin-left: 25%;
+ 	margin-top: 5%;
+ 	background-color: #636363;
+ 	border-radius:20px;
+ 	padding-top: 5px;
+ }
+ p{
+ font-size: 26px;
+ }
+ a{
+ font-size: 20px;
+ }
+ input {
+ border-radius:5px;
+	font-size: 20px;
+}
+.button{
+	width: 35%;
+	background-color:#575757;
+}
+.button:HOVER {
+	cursor: pointer;
+	background-color: #848484;
+}
