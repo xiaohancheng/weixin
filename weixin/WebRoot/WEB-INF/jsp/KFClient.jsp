@@ -13,7 +13,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'HelloWorld.jsp' starting page</title>
+<title>微信客服</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -40,7 +40,7 @@
 				<img alt="未知错误" src="./image/logo.png">
 			</div>
 			<div id="logo_name">
-				<label>|微客服</label>
+				<label>|微信客服</label>
 			</div>
 			<div id="account">
 				欢迎： <a onclick="accountClick(this,event)"><%=session.getAttribute("emNo")%></a>
